@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            background-color: rgb(186, 190, 189);
+        }
+        h2{
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: xx-large;
+            
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for a in obj %}
+    <form method="POST"  action="{% url 'update' id=a.id %}" enctype="multipart/form-data" >
+        {% csrf_token %}
+       <h2>Company Details</h2>
+    <table align="center">
+        <tr>
+        <td><b> CompanyName</b></td>
+        <td><input type="text" name="name" value="{{a.name}}" ></td>
+        </tr>
+        <tr>
+        <td><b>Location</b></td>
+        <td><input type="text" name="location" value="{{a.location}}"></td>
+        </tr>
+        <tr>
+            
+         
+        <td><b>Number </b></td>
+        <td><input type="text" name="Number" value="{{a.number}}"></td>
+        </tr>
+        <tr>
+        <td><b>Image</b></td>
+        <td><input type="file" name="abc" value="{{a.abc}}"></td>
+        </tr><tr>
+        <td>
+        <td><input type="submit" value="submit"></td>
+        </tr>
+        </table>
+        </form>
+        {% endfor %}
+</body>
+</html>
